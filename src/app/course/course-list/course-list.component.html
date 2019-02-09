@@ -1,0 +1,8 @@
+<div class="course-list">
+  <!-- <course-item [course1]="course1"></course-item> -->
+  <course-item *ngFor="let course of courses" [course1]="course"> </course-item>
+  <div *ngFor="let i of [1, 2, 3, 4, 5]">
+    {{ i }}
+    <div>content inside a div</div>
+  </div>
+</div>

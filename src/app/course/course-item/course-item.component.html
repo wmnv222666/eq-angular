@@ -1,0 +1,30 @@
+<div class="course-item">
+  <div [ngStyle]="{ 'font-size': fontSizeSet() }">
+    Course name: {{ course1?.name }}
+  </div>
+  <div [ngClass]="{ green: course1?.instructor, red: true, underline: true }">
+    Instructor name: {{ course1?.instructor ? course1?.instructor : "TBA" }}
+  </div>
+  <div *ngIf="course1?.instructor; else elseBlock">
+    Instructor name:
+    {{ course1?.instructor }}
+  </div>
+  <ng-template #elseBlock>Instructor to be determined</ng-template>
+  <div>
+    Max students:{{ course1?.size }}
+    <span [ngSwitch]="course1?.size">
+      <span *ngSwitchCase="1 - 3">Limited Availability</span>
+      <span *ngSwitchCase="12"> Open to All</span>
+      <span *ngSwitchDefault>Normal Amount</span>
+    </span>
+    Total hours: {{ course1?.hours }}
+    <span *ngIf="course1?.hours">
+      Total minutes:
+      {{ course1.hours * 60 }}</span
+    >
+  </div>
+  <div *ngIf="course1?.movie">
+    Favorite Movie: {{ course1.movie["favorite movie"] }}
+    <img [src]="course1.movie.image" />
+  </div>
+</div>
