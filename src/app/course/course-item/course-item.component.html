@@ -27,4 +27,6 @@
     Favorite Movie: {{ course1.movie["favorite movie"] }}
     <img [src]="course1.movie.image" />
   </div>
+  <button (click)="handleClick()">Click me!</button>
+  <div class="cal" [id]="'course' + course1?.id"></div>
 </div>
