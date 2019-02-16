@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CourseService } from "../../shared/course-service.service";
 
 @Component({
   selector: "course-list",
@@ -6,9 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./course-list.component.css"]
 })
 export class CourseListComponent implements OnInit {
-  constructor() {}
+  courses;
 
-  ngOnInit() {}
+  constructor(private courseServce: CourseService) {}
+
+  ngOnInit() {
+    this.courses = this.courseServce.getCourses();
+  }
+
+  parentHandler(name) {
+    console.log("I recieved data from :" + name);
+  }
 
   name = "angular";
   size = 6;
@@ -26,7 +35,7 @@ export class CourseListComponent implements OnInit {
     }
   };
 
-  courses = [
+  /* courses = [
     {
       name: "angular lvl 1",
       size: 6,
@@ -59,7 +68,7 @@ export class CourseListComponent implements OnInit {
         image: "https://via.placeholder.com/100"
       }
     }
-  ];
+  ]; */
 
   hideOrNot() {
     return true;
